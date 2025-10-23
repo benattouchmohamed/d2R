@@ -118,9 +118,9 @@ const RobloxLogin = () => {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-5xl font-black leading-tight mb-4">
-            <span className="block text-[#4dd4ff] text-stroke-white drop-shadow-xl">DIAMOND</span>
-            <span className="block text-[#ffd700] text-stroke-dark drop-shadow-xl">QUEST</span>
-            <span className="block text-[#ffd700] text-stroke-dark drop-shadow-xl">ARENA</span>
+            <span className="block text-[#4dd4ff] text-stroke-white drop-shadow-xl">FREE</span>
+            <span className="block text-[#ffd700] text-stroke-dark drop-shadow-xl">ROBUX</span>
+            <span className="block text-[#ffd700] text-stroke-dark drop-shadow-xl">2025</span>
           </h1>
           <p className="text-white/90 text-lg font-bold">
             Login with your Roblox username

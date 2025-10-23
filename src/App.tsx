@@ -17,6 +17,7 @@ import LuckySpin from "./pages/LuckySpin";
 import DiamondRush from "./pages/DiamondRush";
 import Offers from "./pages/Offers";
 import NotFound from "./pages/NotFound";
+import { HelmetProvider } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 
@@ -30,37 +31,63 @@ const AppContent = () => {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/exchange" element={<Exchange />} />
-        <Route path="/share" element={<Share />} />
-        <Route path="/play-and-earn" element={<PlayAndEarn />} />
-        <Route path="/lucky-spin" element={<LuckySpin />} />
-        <Route path="/diamond-rush" element={<DiamondRush />} />
-        <Route path="/offers" element={<Offers />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+    <Routes>
+  {/* Root / Home */}
+  <Route path="/" element={<Index />} />
+  <Route path="/free-robux" element={<Index />} /> {/* SEO alias for homepage */}
+
+  {/* Exchange page */}
+  <Route path="/exchange-diamonds-to-robux" element={<Exchange />} />
+ <Route path="/exchange" element={<Exchange />} />
+  <Route path="/share" element={<Share />} />
+  <Route path="/play-and-earn" element={<PlayAndEarn />} />
+  <Route path="/lucky-spin" element={<LuckySpin />} />
+  <Route path="/diamond-rush" element={<DiamondRush />} />
+  <Route path="/offers" element={<Offers />} />
+  {/* Share page */}
+  <Route path="/share-and-earn-robux" element={<Share />} />
+
+  {/* Play & Earn */}
+  <Route path="/play-and-earn-robux" element={<PlayAndEarn />} />
+
+  {/* Lucky Spin */}
+  <Route path="/robux-lucky-spin" element={<LuckySpin />} />
+
+  {/* Diamond Rush */}
+  <Route path="/diamond-rush-robux" element={<DiamondRush />} />
+  <Route path="/free-robux-2025" element={<Index />} /> {/* SEO-friendly alias */}
+
+  {/* Offers */}
+  <Route path="/roblox-offers-and-rewards" element={<Offers />} />
+
+  {/* 404 */}
+  <Route path="*" element={<NotFound />} />
+</Routes>
+
+       
     </>
   );
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <RobloxUserProvider>
-      <DiamondProvider>
-        <NotificationProvider> {/* ✅ Wrap everything that uses useNotification */}
-          <NotificationContainer /> {/* ✅ Make sure notifications show */}
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <AppContent />
-            </BrowserRouter>
-          </TooltipProvider>
-        </NotificationProvider>
-      </DiamondProvider>
-    </RobloxUserProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <RobloxUserProvider>
+        <DiamondProvider>
+          <NotificationProvider>
+            <NotificationContainer />
+            <TooltipProvider>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
+                <AppContent />
+              </BrowserRouter>
+            </TooltipProvider>
+          </NotificationProvider>
+        </DiamondProvider>
+      </RobloxUserProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
